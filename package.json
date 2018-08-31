@@ -1,0 +1,17 @@
+{
+  "name": "gcloud-app",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "cd client && npm run build",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "prestart": "npm build",
+    "start": "npm run server",
+    "postinstall": "concurrently --kill-others-on-fail \"cd client && npm install\" \"cd server && npm install\"",
+    "deploy": "gcloud app deploy"
+  },
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
